@@ -1,0 +1,35 @@
+--create a Grocery Store Database
+
+CREATE TABLE cloth_goods (id INTEGER PRIMARY KEY, item_name TEXT, price INTEGER, fabric TEXT, aisle INTEGER); 
+INSERT INTO cloth_goods VALUES (1, 'shirt', 3.99, 'cotton', 12); 
+INSERT INTO cloth_goods VALUES (2, 'pants', 14.99, 'denim', 13); 
+INSERT INTO cloth_goods VALUES (3, 'shirt', 4.99, 'polyester', 12); 
+INSERT INTO cloth_goods VALUES (4, 'pants', 12.99, 'cotton', 13); 
+INSERT INTO cloth_goods VALUES (5, 'dress', 19.99, 'linen blend', 10); INSERT INTO cloth_goods VALUES (6, 'skirt', 10.99, 'denim', 9); 
+INSERT INTO cloth_goods VALUES (7, 'shirt', 10.99, 'linen', 12); 
+INSERT INTO cloth_goods VALUES (8, 'table cloth', 5.99, 'flannel', 8);  
+INSERT INTO cloth_goods VALUES (9, 'shirt', 10.99, 'cotton', 12); 
+INSERT INTO cloth_goods VALUES (10, 'sheets', 35.99, 'linen', 13); 
+INSERT INTO cloth_goods VALUES (11, 'skirt', 5.99, 'cotton', 9); 
+INSERT INTO cloth_goods VALUES (12, 'curtain', 60.95, 'cotton', 1); 
+INSERT INTO cloth_goods VALUES (13, 'pants', 20.99, 'denim', 13); 
+INSERT INTO cloth_goods VALUES (14, 'napkins', 16.99, 'polyester', 2); 
+INSERT INTO cloth_goods VALUES (15, 'shirt', 16.99, 'linen blend', 3); 
+
+--display database ordered by price. 
+SELECT * FROM cloth_goods ORDER BY price; 
+
+--display database only from aisle 10 on, ordered by price. 
+SELECT * FROM cloth_goods WHERE aisle > 10 ORDER BY price;  
+
+--what is the sum of the prices in the database?
+SELECT SUM (price) FROM cloth_goods; 
+
+--what is the least expensive shirt?
+SELECT MIN (price) FROM cloth_goods WHERE item_name = 'shirt'; 
+
+--what is the sum of all pants?
+SELECT SUM (price) FROM cloth_goods WHERE item_name = 'pants'; 
+
+--what is the average price for items in aisles 7-13?
+SELECT AVG (price) FROM cloth_goods WHERE aisle > 6; 
