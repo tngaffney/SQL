@@ -1,0 +1,11 @@
+--1. Show Customers (their full names, customer ID, and country) who are not in the US.-- 
+
+SELECT firstname, lastname, customerid, country
+FROM chinook.customers
+WHERE country <> 'USA'; 
+
+--2. Show only customers from Brazil. 
+SELECT firstname, lastname, country 
+FROM chinook.customers 
+WHERE country = 'Brazil'; 
+
