@@ -9,3 +9,9 @@ SELECT firstname, lastname, country
 FROM chinook.customers 
 WHERE country = 'Brazil'; 
 
+--3. Find the invoices of customers who are from Brazil.
+SELECT firstname, lastname, invoiceid, invoicedate, billingcountry 
+FROM chinook.customers AS cust
+JOIN chinook.invoices AS inv
+ON cust.customerid = inv.customerid; 
+
