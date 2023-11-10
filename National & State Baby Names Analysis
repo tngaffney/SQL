@@ -1,0 +1,48 @@
+What was the most popular female name in the Nation in the year 1880?
+
+SELECT DISTINCT name, count 
+FROM database.NationalNames 
+WHERE gender = 'F' AND year = '1880'
+ORDER BY count DESC LIMIT 1; 
+
+
+What was the most popular male name in the Nation in the year 1885?
+
+SELECT DISTINCT name, count 
+FROM database.NationalNames 
+WHERE gender = 'M' AND year = '1885'
+ORDER BY count DESC LIMIT 1;
+
+What were the 10 most popular baby names overall?
+
+SELECT * 
+FROM NationalNames 
+ORDER BY count DESC
+LIMIT 10; 
+
+What were the five most popular names that end in A?
+
+SELECT * FROM NationalNames 
+WHERE name LIKE '%a'
+ORDER BY count DESC
+LIMIT 5; 
+
+What were the five most popular girl names with 4 or fewer letters in 1880?
+SELECT * 
+FROM NationalNames 
+WHERE gender = 'F' 
+AND LENGTH(name) <= 4 
+AND year = 1880
+ORDER BY count DESC 
+LIMIT 5; 
+
+Number of babies and names, boys versus girls, with names that end in a vowel in the year 1883:
+
+SELECT gender, 
+COUNT (*)AS total_names,
+SUM (count ) AS total_babies 
+FROM NationalNames 
+WHERE 
+    SUBSTR(name, -1) IN ('a', 'e', 'i', 'o', 'u') 
+AND year = 1883
+GROUP BY gender; 
